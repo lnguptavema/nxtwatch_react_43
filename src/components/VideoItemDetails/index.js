@@ -151,12 +151,13 @@ class VideoItemDetails extends Component {
             console.log()
             return (
               <NavContainerHome>
-                <Link to="/">
+                <>
                   <ImgLogoHome
+                    onClick={themeButtonChangeHome}
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                     alt="nxt watch logo"
                   />
-                </Link>
+                </>
                 <NavItemsCard>
                   {' '}
                   <Button themeButton>

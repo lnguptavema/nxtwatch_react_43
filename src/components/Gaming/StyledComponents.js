@@ -207,4 +207,6 @@ export const Button = styled.button`
 export const ImgLogoHome = styled.img`
   height: 7vh;
   width: 10vw;
+  cursor: pointer;
+  outline: none;
 `

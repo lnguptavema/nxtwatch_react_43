@@ -88,6 +88,8 @@ class SavedVideos extends Component {
           }
           const themeButtonChangeHome = () => {
             currentTabContextCallBack(tabItems.home)
+            const {history} = this.props
+            history.replace('/')
           }
           const themeButtonChangeTrending = () => {
             currentTabContextCallBack(tabItems.trending)
@@ -105,12 +107,13 @@ class SavedVideos extends Component {
             console.log()
             return (
               <NavContainerHome>
-                <Link to="/">
+                <>
                   <ImgLogoHome
+                    onClick={themeButtonChangeHome}
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                     alt="nxt watch logo"
                   />
-                </Link>
+                </>
                 <NavItemsCard>
                   {' '}
                   <Button themeButton>

@@ -17,6 +17,15 @@ export const ImgThumbnailvideo = styled.img`
 export const CardVideo = styled.div`
   display: flex;
   text-decoration: none;
+  display: ${props => (props.popup ? 'flex' : null)};
+  flex-direction: ${props => (props.popup ? 'column' : null)};
+  background-color: ${props => (props.popup ? '#ffffff' : null)};
+  border: ${props => (props.popup ? '0px solid' : null)};
+  border-radius: ${props => (props.popup ? '10px' : null)};
+  justify-content: ${props => (props.popup ? 'center' : null)};
+  align-items: ${props => (props.popup ? 'center' : null)};
+  height: ${props => (props.popup ? '40vh' : null)};
+  width: ${props => (props.popup ? '25vw' : null)};
 `
 
 export const VLink = styled(Link)`
@@ -215,4 +224,6 @@ export const Button = styled.button`
 export const ImgLogoHome = styled.img`
   height: 7vh;
   width: 10vw;
+  cursor: pointer;
+  outline: none;
 `

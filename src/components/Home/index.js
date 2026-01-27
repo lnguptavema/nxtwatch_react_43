@@ -170,19 +170,21 @@ class Home extends Component {
             console.log()
             return (
               <NavContainerHome darktheme={darktheme}>
-                <Link to="/">
+                <>
                   {darktheme ? (
                     <ImgLogoHome
+                      onClick={themeButtonChangeHome}
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
                       alt="website logo"
                     />
                   ) : (
                     <ImgLogoHome
+                      onClick={themeButtonChangeHome}
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                       alt="website logo"
                     />
                   )}
-                </Link>
+                </>
                 <NavItemsCard>
                   <Button
                     darktheme={darktheme}
@@ -199,8 +201,9 @@ class Home extends Component {
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                     alt="profile"
                   />
-                  <CardVideo pop>
+                  <CardVideo>
                     <Popup
+                      modal
                       trigger={
                         <Button logbtn darktheme={darktheme} type="button">
                           Logout
@@ -208,21 +211,25 @@ class Home extends Component {
                       }
                     >
                       {close => (
-                        <>
+                        <CardVideo popup>
                           <div>
-                            <p>Are you sure, you want to logout</p>
+                            <ParagraphContactHome darktheme={darktheme}>
+                              Are you sure, you want to logout
+                            </ParagraphContactHome>
                           </div>
-                          <button
-                            type="button"
-                            className="trigger-button"
-                            onClick={() => close()}
-                          >
-                            Cancel
-                          </button>
-                          <button type="button" onClick={clickedLogout}>
-                            Confirm
-                          </button>
-                        </>
+                          <CardVideo btns>
+                            <button
+                              type="button"
+                              className="trigger-button"
+                              onClick={() => close()}
+                            >
+                              Cancel
+                            </button>
+                            <button type="button" onClick={clickedLogout}>
+                              Confirm
+                            </button>
+                          </CardVideo>
+                        </CardVideo>
                       )}
                     </Popup>
                   </CardVideo>
@@ -532,6 +539,8 @@ class Home extends Component {
                 return homeRouteData()
               case tabItems.savedVideos:
                 return <Redirect to="/saved-videos" />
+              case tabItems.trending:
+                return <Redirect to="/trending" />
               default:
                 return null
             }
