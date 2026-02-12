@@ -50,7 +50,6 @@ class VideoItemDetails extends Component {
   state = {
     videosArray: [],
     currentApiStatus: apiStatus.loading,
-    saveStatus: false,
   }
 
   componentDidMount() {

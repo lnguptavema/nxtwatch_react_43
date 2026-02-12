@@ -5,7 +5,7 @@ import Popup from 'reactjs-popup'
 import {RiPlayListAddFill} from 'react-icons/ri'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {Redirect, Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import ThemeContext from '../../context/ThemeContext'
 import {
   ProfileImgHome,

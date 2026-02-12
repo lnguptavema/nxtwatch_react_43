@@ -33,8 +33,9 @@ class Login extends Component {
     this.setState({userName: event.target.value})
   }
 
-  clickedCheckbox = event => {
-    this.setState({showPassword: event.target.checked})
+  clickedCheckbox = () => {
+    const {showPassword} = this.state
+    this.setState({showPassword: !showPassword})
   }
 
   clickedLogin = async event => {
@@ -162,11 +163,10 @@ class Login extends Component {
                           />
                         )}
                       </InputItemsLogin>
-                      <PasswordCardLogin>
-                        {' '}
+                      <PasswordCardLogin onClick={this.clickedCheckbox}>
                         <CheckboxInputLogin
-                          onClick={this.clickedCheckbox}
                           type="checkbox"
+                          checked={showPassword}
                         />
                         <p>Show Password</p>
                       </PasswordCardLogin>{' '}

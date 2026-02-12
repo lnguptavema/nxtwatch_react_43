@@ -62,6 +62,8 @@ export const PasswordCardLogin = styled.div`
   align-content: center;
   align-self: center;
   margin-left: 5px;
+  cursor: pointer;
+  outline: none;
 `
 export const CheckboxInputLogin = styled.input`
   height: 3vh;

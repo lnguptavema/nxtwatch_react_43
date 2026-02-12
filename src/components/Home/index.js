@@ -7,7 +7,7 @@ import {IoSearchOutline} from 'react-icons/io5'
 import {formatDistanceToNow} from 'date-fns'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {Redirect, Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import ThemeContext from '../../context/ThemeContext'
 import {
   ProfileImgHome,
@@ -74,18 +74,18 @@ class Home extends Component {
     }
     const response = await fetch(apiUrl, options)
     if (response.ok) {
-      const data = await response.json()
-      const updatedData = data.videos.map(eachVideo => ({
-        id: eachVideo.id,
-        title: eachVideo.title,
-        thumbnailUrl: eachVideo.thumbnail_url,
-        viewCount: eachVideo.view_count,
-        publishedAt: eachVideo.published_at,
-        channel: {
-          name: eachVideo.channel.name,
-          profileImageUrl: eachVideo.channel.profile_image_url,
-        },
-      }))
+      // const data = await response.json()
+      // const updatedData = data.videos.map(eachVideo => ({
+      //   id: eachVideo.id,
+      //   title: eachVideo.title,
+      //   thumbnailUrl: eachVideo.thumbnail_url,
+      //   viewCount: eachVideo.view_count,
+      //   publishedAt: eachVideo.published_at,
+      //   channel: {
+      //     name: eachVideo.channel.name,
+      //     profileImageUrl: eachVideo.channel.profile_image_url,
+      //   },
+      // }))
     } else {
       this.setState({currentApiStatus: apiStatus.failure})
     }
@@ -211,23 +211,33 @@ class Home extends Component {
                       }
                     >
                       {close => (
-                        <CardVideo popup>
-                          <div>
-                            <ParagraphContactHome darktheme={darktheme}>
-                              Are you sure, you want to logout
-                            </ParagraphContactHome>
-                          </div>
-                          <CardVideo btns>
-                            <button
-                              type="button"
-                              className="trigger-button"
-                              onClick={() => close()}
-                            >
-                              Cancel
-                            </button>
-                            <button type="button" onClick={clickedLogout}>
-                              Confirm
-                            </button>
+                        <CardVideo mainCardPopup>
+                          <CardVideo popup>
+                            <div>
+                              <ParagraphContactHome
+                                popupText
+                                darktheme={darktheme}
+                              >
+                                Are you sure, you want to logout ?
+                              </ParagraphContactHome>
+                            </div>
+                            <CardVideo btns>
+                              <Button
+                                type="button"
+                                className="trigger-button"
+                                onClick={() => close()}
+                                cancelBtn
+                              >
+                                Cancel
+                              </Button>
+                              <Button
+                                confirmBtn
+                                type="button"
+                                onClick={clickedLogout}
+                              >
+                                Confirm
+                              </Button>
+                            </CardVideo>
                           </CardVideo>
                         </CardVideo>
                       )}

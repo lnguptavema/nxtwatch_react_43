@@ -24,8 +24,17 @@ export const CardVideo = styled.div`
   border-radius: ${props => (props.popup ? '10px' : null)};
   justify-content: ${props => (props.popup ? 'center' : null)};
   align-items: ${props => (props.popup ? 'center' : null)};
-  height: ${props => (props.popup ? '40vh' : null)};
+  height: ${props => (props.popup ? '30vh' : null)};
   width: ${props => (props.popup ? '25vw' : null)};
+  padding: ${props => (props.popup ? '0px' : null)};
+
+  flex-direction: ${props => (props.mainCardPopup ? 'column' : null)};
+  justify-content: ${props => (props.mainCardPopup ? 'center' : null)};
+  align-self: ${props => (props.popup ? 'center' : null)};
+  height: ${props => (props.mainCardPopup ? '100vh' : null)};
+  width: ${props => (props.mainCardPopup ? '100vw' : null)};
+  background-color: ${props =>
+    props.mainCardPopup ? 'rgba(0, 0, 0, 0.7)' : null};
 `
 
 export const VLink = styled(Link)`
@@ -110,6 +119,8 @@ export const ParagraphContactHome = styled.p`
   margin-top: ${props => (props.VideoItemView ? '0px' : null)};
 
   color: ${props => (props.darktheme ? 'white' : null)};
+  width: ${props => (props.popupText ? '20vw' : null)};
+  margin-bottom: ${props => (props.popupText ? '20px' : null)};
 `
 
 export const ImgContactIcons = styled.img`
@@ -220,6 +231,13 @@ export const Button = styled.button`
 
   border: ${props => (props.retrybtn ? '1px solid' : null)};
   margin-left: ${props => (props.retrybtn ? '130px' : null)};
+
+  color: ${props => (props.confirmBtn ? 'white' : null)};
+  background-color: ${props => (props.confirmBtn ? '#3b82f6' : null)};
+  margin-left: ${props => (props.confirmBtn ? '10px' : null)};
+
+  background-color: ${props => (props.cancelBtn ? '#ebebeb' : null)};
+  border: ${props => (props.cancelBtn ? '1px solid' : null)};
 `
 export const ImgLogoHome = styled.img`
   height: 7vh;
