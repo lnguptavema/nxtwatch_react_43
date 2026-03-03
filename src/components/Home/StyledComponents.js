@@ -35,6 +35,12 @@ export const CardVideo = styled.div`
   width: ${props => (props.mainCardPopup ? '100vw' : null)};
   background-color: ${props =>
     props.mainCardPopup ? 'rgba(0, 0, 0, 0.7)' : null};
+
+  justify-content: ${props => (props.nosearch ? 'center' : null)};
+  align-self: ${props => (props.nosearch ? 'center' : null)};
+  flex-direction: ${props => (props.nosearch ? 'column' : null)};
+  margin-left: ${props => (props.nosearch ? '300px' : null)};
+  width: ${props => (props.nosearch ? '50vw' : null)};
 `
 
 export const VLink = styled(Link)`
@@ -101,6 +107,7 @@ export const ButtonClose = styled.button`
   margin: 10px;
   font-size: 30px;
   outline: none;
+  color: ${props => (props.darktheme ? 'white' : null)};
 `
 
 export const MainHomeRouteContainer = styled.div`
@@ -157,6 +164,7 @@ export const HeadingindexItemsHome = styled.h1`
   font-size: 20px;
   width: 10vw;
   color: ${props => (props.darktheme ? 'white' : null)};
+  width: ${props => (props.nosearch ? '30vw' : null)};
 `
 
 export const NavItemsCard = styled.div`
@@ -228,10 +236,10 @@ export const Button = styled.button`
   border: ${props => (props.logbtn ? '1px solid' : '0px solid blue')};
   outline: none;
   cursor: pointer;
-  color: ${props => (props.logbtn ? 'blue' : null)};
 
   border: ${props => (props.retrybtn ? '1px solid' : null)};
   margin-left: ${props => (props.retrybtn ? '130px' : null)};
+  width: ${props => (props.retrybtn ? '10vw' : null)};
 
   color: ${props => (props.confirmBtn ? 'white' : null)};
   background-color: ${props => (props.confirmBtn ? '#3b82f6' : null)};

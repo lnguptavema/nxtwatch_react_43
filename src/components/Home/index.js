@@ -74,18 +74,7 @@ class Home extends Component {
     }
     const response = await fetch(apiUrl, options)
     if (response.ok) {
-      // const data = await response.json()
-      // const updatedData = data.videos.map(eachVideo => ({
-      //   id: eachVideo.id,
-      //   title: eachVideo.title,
-      //   thumbnailUrl: eachVideo.thumbnail_url,
-      //   viewCount: eachVideo.view_count,
-      //   publishedAt: eachVideo.published_at,
-      //   channel: {
-      //     name: eachVideo.channel.name,
-      //     profileImageUrl: eachVideo.channel.profile_image_url,
-      //   },
-      // }))
+      // ff
     } else {
       this.setState({currentApiStatus: apiStatus.failure})
     }
@@ -424,18 +413,24 @@ class Home extends Component {
                               />
                             </div>{' '}
                             <div>
-                              <ParagraphContactHome VideoItem>
+                              <ParagraphContactHome
+                                VideoItem
+                                darktheme={darktheme}
+                              >
                                 {eachVideo.title}{' '}
                               </ParagraphContactHome>
-                              <ParagraphContactHome VideoItem>
+                              <ParagraphContactHome
+                                VideoItem
+                                darktheme={darktheme}
+                              >
                                 {eachVideo.channel.name}{' '}
                               </ParagraphContactHome>
                               <MainHomeRouteContainer cardView>
                                 {' '}
-                                <ParagraphContactHome>
+                                <ParagraphContactHome darktheme={darktheme}>
                                   {eachVideo.viewCount} views{' '}
                                 </ParagraphContactHome>
-                                <ParagraphContactHome>
+                                <ParagraphContactHome darktheme={darktheme}>
                                   {renderDate(eachVideo.publishedAt)} ago
                                 </ParagraphContactHome>
                               </MainHomeRouteContainer>
@@ -446,14 +441,18 @@ class Home extends Component {
                     ))}
                   </UL>
                 ) : (
-                  <div>
+                  <CardVideo nosearch>
                     <ImgThumbnailvideo
                       nosearchImg
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
                       alt="no videos"
                     />
-                    <h1>No Search results found</h1>
-                    <p>Try different key words or remove search filter</p>
+                    <HeadingindexItemsHome nosearch darktheme={darktheme}>
+                      No Search results found
+                    </HeadingindexItemsHome>
+                    <HeadingindexItemsHome nosearch darktheme={darktheme}>
+                      Try different key words or remove search filter
+                    </HeadingindexItemsHome>
                     <Button
                       retrybtn
                       type="button"
@@ -461,7 +460,7 @@ class Home extends Component {
                     >
                       Retry
                     </Button>
-                  </div>
+                  </CardVideo>
                 )}
               </>
             )
@@ -514,6 +513,7 @@ class Home extends Component {
                       close
                       type="button"
                       onClick={clickedClose}
+                      darktheme={darktheme}
                     >
                       x
                     </ButtonClose>
