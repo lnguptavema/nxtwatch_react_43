@@ -13,6 +13,8 @@ export const UL = styled.ul`
 export const VLink = styled(Link)`
   color: black;
   text-decoration: none;
+  width: ${props => (props.popupText ? '20vw' : null)};
+  margin-bottom: ${props => (props.popupText ? '20px' : null)};
 `
 
 export const ImgThumbnailvideo = styled.img`
@@ -46,6 +48,25 @@ export const CardVideo = styled.div`
 
   width: ${props => (props.mainCardVideoItem ? '65vw' : null)};
   flex-direction: ${props => (props.mainCardVideoItem ? 'column' : null)};
+
+  height: ${props => (props.popup ? '30vh' : null)};
+  width: ${props => (props.popup ? '25vw' : null)};
+  padding: ${props => (props.popup ? '40px' : null)};
+  flex-direction: ${props => (props.mainCardPopup ? 'column' : null)};
+  flex-direction: ${props => (props.popup ? 'column' : null)};
+  justify-content: ${props => (props.mainCardPopup ? 'center' : null)};
+  align-self: ${props => (props.popup ? 'center' : null)};
+  height: ${props => (props.mainCardPopup ? '100vh' : null)};
+  width: ${props => (props.mainCardPopup ? '100vw' : null)};
+  margin: ${props => (props.mainCardPopup ? '0px' : null)};
+  color: ${props => (props.mainCardPopup ? 'red' : null)};
+  justify-content: ${props => (props.popup ? 'center' : null)};
+  align-items: ${props => (props.popup ? 'center' : null)};
+  background-color: ${props => (props.popup ? 'white' : null)};
+  border-radius: ${props => (props.popup ? '10px' : null)};
+
+  background-color: ${props =>
+    props.mainCardPopup ? 'rgba(0, 0, 0, 0.7)' : null};
 `
 export const ParagraphContactHome = styled.p`
   width: ${props => (props.BuyPara ? '23vw' : '13vw')};
@@ -56,6 +77,10 @@ export const ParagraphContactHome = styled.p`
   width: ${props => (props.hrTag ? '75vw' : null)};
 
   width: ${props => (props.descVideoItem ? '70vw' : null)};
+
+  width: ${props => (props.popupText ? '20vw' : null)};
+  color: ${props => (props.popupText ? 'black' : null)};
+  margin-bottom: ${props => (props.popupText ? '20px' : null)};
 `
 
 export const ListItemVideoHome = styled.li`
@@ -109,6 +134,14 @@ export const Button = styled.button`
   color: ${props => (props.liked ? 'blue' : null)};
   color: ${props => (props.disliked ? 'blue' : null)};
   color: ${props => (props.save ? 'blue' : null)};
+
+  color: ${props => (props.confirmBtn ? 'white' : null)};
+  background-color: ${props => (props.confirmBtn ? '#3b82f6' : null)};
+  margin-left: ${props => (props.confirmBtn ? '10px' : null)};
+
+  background-color: ${props => (props.cancelBtn ? '#ebebeb' : null)};
+  border: ${props => (props.cancelBtn ? '1px solid' : null)};
+  color: ${props => (props.cancelBtn ? 'black' : null)};
 `
 
 export const MainHomeRouteContainer = styled.div`

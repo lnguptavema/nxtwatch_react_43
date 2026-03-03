@@ -143,24 +143,45 @@ class Gaming extends Component {
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                     alt="profile"
                   />
-                  <CardVideo pop>
-                    <Popup trigger={<Button type="button">Logout</Button>}>
+                  <CardVideo>
+                    <Popup
+                      modal
+                      trigger={
+                        <Button logbtn darktheme={darktheme} type="button">
+                          Logout
+                        </Button>
+                      }
+                    >
                       {close => (
-                        <>
-                          <div>
-                            <p>Are you sure,you want to logout?</p>
-                          </div>
-                          <button
-                            type="button"
-                            className="trigger-button"
-                            onClick={() => close()}
-                          >
-                            Cancel
-                          </button>
-                          <button type="button" onClick={clickedLogout}>
-                            Confirm
-                          </button>
-                        </>
+                        <CardVideo mainCardPopup>
+                          <CardVideo popup>
+                            <div>
+                              <ParagraphContactHome
+                                popupText
+                                darktheme={darktheme}
+                              >
+                                Are you sure, you want to logout ?
+                              </ParagraphContactHome>
+                            </div>
+                            <CardVideo btns>
+                              <Button
+                                type="button"
+                                className="trigger-button"
+                                onClick={() => close()}
+                                cancelBtn
+                              >
+                                Cancel
+                              </Button>
+                              <Button
+                                confirmBtn
+                                type="button"
+                                onClick={clickedLogout}
+                              >
+                                Confirm
+                              </Button>
+                            </CardVideo>
+                          </CardVideo>
+                        </CardVideo>
                       )}
                     </Popup>
                   </CardVideo>
