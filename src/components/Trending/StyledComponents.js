@@ -33,10 +33,35 @@ export const CardVideo = styled.div`
   justify-content: ${props => (props.bannerTrending ? 'center' : null)};
   align-items: ${props => (props.bannerTrending ? 'center' : null)};
   border-radius: ${props => (props.bannerTrending ? '30px' : null)};
+
+  display: ${props => (props.popup ? 'flex' : null)};
+  flex-direction: ${props => (props.popup ? 'column' : null)};
+  background-color: ${props => (props.popup ? '#ffffff' : null)};
+  border: ${props => (props.popup ? '0px solid' : null)};
+  border-radius: ${props => (props.popup ? '10px' : null)};
+  justify-content: ${props => (props.popup ? 'center' : null)};
+  align-items: ${props => (props.popup ? 'center' : null)};
+
+  height: ${props => (props.popup ? '30vh' : null)};
+  width: ${props => (props.popup ? '25vw' : null)};
+  padding: ${props => (props.popup ? '0px' : null)};
+
+  flex-direction: ${props => (props.mainCardPopup ? 'column' : null)};
+  justify-content: ${props => (props.mainCardPopup ? 'center' : null)};
+  align-self: ${props => (props.popup ? 'center' : null)};
+  height: ${props => (props.mainCardPopup ? '100vh' : null)};
+  width: ${props => (props.mainCardPopup ? '100vw' : null)};
+  margin: ${props => (props.mainCardPopup ? '0px' : null)};
+
+  background-color: ${props =>
+    props.mainCardPopup ? 'rgba(0, 0, 0, 0.7)' : null};
 `
 export const VLink = styled(Link)`
   color: black;
   text-decoration: none;
+
+  width: ${props => (props.popupText ? '20vw' : null)};
+  margin-bottom: ${props => (props.popupText ? '20px' : null)};
 `
 
 export const ListContainer = styled.div`
@@ -87,6 +112,9 @@ export const ParagraphContactHome = styled.p`
   width: ${props => (props.VideoItem ? '25vw' : null)};
   margin: ${props => (props.VideoItem ? '0px' : null)};
   margin-top: ${props => (props.VideoItemView ? '0px' : null)};
+
+  width: ${props => (props.popupText ? '20vw' : null)};
+  margin-bottom: ${props => (props.popupText ? '20px' : null)};
 `
 
 export const ImgContactIcons = styled.img`
@@ -178,6 +206,14 @@ export const Button = styled.button`
   outline: none;
   cursor: pointer;
   width: 5vw;
+
+  color: ${props => (props.confirmBtn ? 'white' : null)};
+  background-color: ${props => (props.confirmBtn ? '#3b82f6' : null)};
+  margin-left: ${props => (props.confirmBtn ? '10px' : null)};
+
+  background-color: ${props => (props.cancelBtn ? '#ebebeb' : null)};
+  border: ${props => (props.cancelBtn ? '1px solid' : null)};
+  color: ${props => (props.cancelBtn ? 'black' : null)};
 `
 
 export const ImgLogoHome = styled.img`

@@ -219,7 +219,7 @@ export const IndexButton = styled.button`
 export const Button = styled.button`
   background-color: ${props => (props.themeButton ? 'transparent' : 'white')};
   border: ${props => (props.themeButton ? '0px solid' : '1px solid blue')};
-  color: ${props => (props.themeButton ? null : 'blue')};
+  color: ${props => (props.themeButton ? null : 'white')};
   height: ${props => (props.reactionLike ? '10vh' : '5vh')};
 
   color: ${props => (props.darktheme ? 'white' : 'black')};
@@ -228,6 +228,7 @@ export const Button = styled.button`
   border: ${props => (props.logbtn ? '1px solid' : '0px solid blue')};
   outline: none;
   cursor: pointer;
+  color: ${props => (props.logbtn ? 'blue' : null)};
 
   border: ${props => (props.retrybtn ? '1px solid' : null)};
   margin-left: ${props => (props.retrybtn ? '130px' : null)};
