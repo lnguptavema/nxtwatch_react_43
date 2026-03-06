@@ -217,6 +217,22 @@ export const IndexButton = styled.button`
   color: ${props => (props.darkthemenon ? '#909090' : 'null')};
 `
 
+export const ButtonIcon = styled.button`
+  color: 'red';
+  color: ${props => (props.darktheme ? 'white' : 'black')};
+  background-color: ${props => (props.darktheme ? 'black' : 'white')};
+  border: ${props => (props.darktheme ? '0px solid' : '0px solid blue')};
+  background-color: ${props => (props.darktheme ? ' #212121' : null)};
+
+  background-color: ${props => (props.themeButton ? 'transparent' : 'white')};
+  border: ${props => (props.themeButton ? '0px solid' : '1px solid blue')};
+  color: ${props => (props.themeButton ? null : 'blue')};
+  height: 5vh;
+  outline: none;
+  cursor: pointer;
+  width: 5vw;
+`
+
 export const Button = styled.button`
   background-color: ${props => (props.themeButton ? 'transparent' : 'white')};
   border: ${props => (props.themeButton ? '0px solid' : '1px solid blue')};
