@@ -19,6 +19,7 @@ import {
   CardVideo,
   ListContainer,
   Button,
+  ButtonIcon,
   ListItemVideoHome,
   IndexsCardHome,
   ImgThumbnailvideo,
@@ -153,13 +154,13 @@ class Trending extends Component {
                 </>
                 <NavItemsCard darktheme={darktheme}>
                   {' '}
-                  <Button themeButton darktheme={darktheme}>
+                  <ButtonIcon themeButton darktheme={darktheme}>
                     {darktheme ? (
                       <FaMoon onClick={darkthemeChangeNow} />
                     ) : (
                       <FaMoon onClick={darkthemeChangeNow} />
                     )}
-                  </Button>{' '}
+                  </ButtonIcon>
                   <ProfileImgHome
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                     alt="profile"
