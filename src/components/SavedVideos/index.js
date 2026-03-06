@@ -11,6 +11,7 @@ import ThemeContext from '../../context/ThemeContext'
 
 import {
   ProfileImgHome,
+  CardNoItems,
   IndexButton,
   ImgLogoHome,
   ContainerIndexItems,
@@ -19,6 +20,7 @@ import {
   ListItemVideoHome,
   CardVideo,
   VLink,
+  ButtonIcon,
   ImgThumbnailvideo,
   UL,
   Button,
@@ -105,19 +107,31 @@ class SavedVideos extends Component {
           const navBarHome = () => {
             console.log()
             return (
-              <NavContainerHome>
+              <NavContainerHome darktheme={darktheme}>
                 <>
-                  <ImgLogoHome
-                    onClick={themeButtonChangeHome}
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                    alt="nxt watch logo"
-                  />
+                  {darktheme ? (
+                    <ImgLogoHome
+                      onClick={themeButtonChangeHome}
+                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
+                      alt="nxt watch logo"
+                    />
+                  ) : (
+                    <ImgLogoHome
+                      onClick={themeButtonChangeHome}
+                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                      alt="nxt watch logo"
+                    />
+                  )}
                 </>
-                <NavItemsCard>
+                <NavItemsCard darktheme={darktheme}>
                   {' '}
-                  <Button themeButton>
-                    <FaMoon onClick={darkthemeChangeNow} />
-                  </Button>{' '}
+                  <ButtonIcon themeButton darktheme={darktheme}>
+                    {darktheme ? (
+                      <FaMoon onClick={darkthemeChangeNow} />
+                    ) : (
+                      <FaMoon onClick={darkthemeChangeNow} />
+                    )}
+                  </ButtonIcon>
                   <ProfileImgHome
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                     alt="profile"
@@ -133,7 +147,7 @@ class SavedVideos extends Component {
                     >
                       {close => (
                         <CardVideo mainCardPopup>
-                          <CardVideo popup>
+                          <CardVideo popup darktheme={darktheme}>
                             <div>
                               <ParagraphContactHome
                                 popupText
@@ -148,6 +162,7 @@ class SavedVideos extends Component {
                                 className="trigger-button"
                                 onClick={() => close()}
                                 cancelBtn
+                                darktheme={darktheme}
                               >
                                 Cancel
                               </Button>
@@ -175,8 +190,23 @@ class SavedVideos extends Component {
                 loader
                 className="loader-container"
                 data-testid="loader"
+                darktheme={darktheme}
               >
-                <Loader type="ThreeDots" color="black" height="50" width="50" />
+                {darktheme ? (
+                  <Loader
+                    type="ThreeDots"
+                    color="white"
+                    height="50"
+                    width="50"
+                  />
+                ) : (
+                  <Loader
+                    type="ThreeDots"
+                    color="black"
+                    height="50"
+                    width="50"
+                  />
+                )}
               </CardSearch>
             )
           }
@@ -201,20 +231,24 @@ class SavedVideos extends Component {
           const indexTabItems = () => {
             console.log()
             return (
-              <ContainerIndexItems>
+              <ContainerIndexItems darktheme={darktheme}>
                 <VLink to="/">
                   <IndexsCardHome
                     onClick={themeButtonChangeHome}
                     bgColor={currentTabValue === tabItems.home}
+                    darktheme={currentTabValue === tabItems.home}
                   >
                     <IndexButton
                       onClick={themeButtonChangeHome}
                       themeButton={currentTabValue === tabItems.home}
+                      darkthemenon={darktheme}
                     >
                       {' '}
                       <FaHome />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>Home</HeadingindexItemsHome>{' '}
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Home
+                    </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>{' '}
                 </VLink>
                 <VLink to="/trending">
@@ -222,16 +256,20 @@ class SavedVideos extends Component {
                   <IndexsCardHome
                     onClick={themeButtonChangeTrending}
                     bgColor={currentTabValue === tabItems.trending}
+                    darktheme={currentTabValue === tabItems.trending}
                   >
                     {' '}
                     <IndexButton
                       onClick={themeButtonChangeTrending}
                       themeButton={currentTabValue === tabItems.trending}
+                      darkthemenon={darktheme}
                     >
                       {' '}
                       <FaFire />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>Trending</HeadingindexItemsHome>{' '}
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Trending
+                    </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>
                 </VLink>
                 <VLink to="/gaming">
@@ -239,32 +277,38 @@ class SavedVideos extends Component {
                   <IndexsCardHome
                     onClick={themeButtonChangeGaming}
                     bgColor={currentTabValue === tabItems.gaming}
+                    darktheme={currentTabValue === tabItems.gaming}
                   >
                     {' '}
                     <IndexButton
                       onClick={themeButtonChangeGaming}
                       themeButton={currentTabValue === tabItems.gaming}
+                      darkthemenon={darktheme}
                     >
                       {' '}
                       <SiYoutubegaming />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>Gaming</HeadingindexItemsHome>{' '}
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Gaming
+                    </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>{' '}
                 </VLink>{' '}
                 <VLink to="/saved-videos">
                   <IndexsCardHome
                     onClick={themeButtonChangesavedVideos}
                     bgColor={currentTabValue === tabItems.savedVideos}
+                    darktheme={darktheme}
                   >
                     {' '}
                     <IndexButton
                       onClick={themeButtonChangesavedVideos}
                       themeButton={currentTabValue === tabItems.savedVideos}
+                      darktheme={darktheme}
                     >
                       {' '}
                       <RiPlayListAddFill />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>
+                    <HeadingindexItemsHome darktheme={darktheme}>
                       {' '}
                       Saved videos{' '}
                     </HeadingindexItemsHome>{' '}
@@ -276,8 +320,10 @@ class SavedVideos extends Component {
           const contactDetails = () => {
             console.log()
             return (
-              <ContactContainer>
-                <p>CONTACT US</p>
+              <ContactContainer darktheme={darktheme}>
+                <ParagraphContactHome darktheme={darktheme}>
+                  CONTACT US
+                </ParagraphContactHome>
                 <ImgContactIcons
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png "
                   alt="facebook logo"
@@ -290,7 +336,7 @@ class SavedVideos extends Component {
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png "
                   alt="linked in logo"
                 />{' '}
-                <ParagraphContactHome>
+                <ParagraphContactHome darktheme={darktheme}>
                   Enjoy! Now to see your channels and recommendations!
                 </ParagraphContactHome>
               </ContactContainer>
@@ -323,18 +369,24 @@ class SavedVideos extends Component {
                           />
                           <CardVideo>
                             <div>
-                              <ParagraphContactHome VideoItem>
+                              <ParagraphContactHome
+                                VideoItem
+                                darktheme={darktheme}
+                              >
                                 {eachVideo.title}{' '}
                               </ParagraphContactHome>
-                              <ParagraphContactHome VideoItem>
+                              <ParagraphContactHome
+                                VideoItem
+                                darktheme={darktheme}
+                              >
                                 {eachVideo.channel.name}{' '}
                               </ParagraphContactHome>
                               <MainHomeRouteContainer cardView>
                                 {' '}
-                                <ParagraphContactHome>
+                                <ParagraphContactHome darktheme={darktheme}>
                                   {eachVideo.viewCount} views{' '}
                                 </ParagraphContactHome>
-                                <ParagraphContactHome>
+                                <ParagraphContactHome darktheme={darktheme}>
                                   {renderDate(eachVideo.publishedAt)} ago
                                 </ParagraphContactHome>
                               </MainHomeRouteContainer>
@@ -345,16 +397,22 @@ class SavedVideos extends Component {
                     ))}
                   </>
                 ) : (
-                  <div>
+                  <CardNoItems>
                     <ImgThumbnailvideo
                       oops
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png "
                       alt="no saved videos"
                     />
-                    <h1>No saved videos found</h1>
-                    <p>You can save your videos while watching them</p>
-                    <p>Save your videos by clicking a button</p>
-                  </div>
+                    <HeadingindexItemsHome nosavedVideos darktheme={darktheme}>
+                      No saved videos found
+                    </HeadingindexItemsHome>
+                    <HeadingindexItemsHome nosavedVideos darktheme={darktheme}>
+                      You can save your videos while watching them
+                    </HeadingindexItemsHome>
+                    <HeadingindexItemsHome nosavedVideos darktheme={darktheme}>
+                      Save your videos by clicking a button
+                    </HeadingindexItemsHome>
+                  </CardNoItems>
                 )}
               </UL>
             )
@@ -375,13 +433,15 @@ class SavedVideos extends Component {
           const videoItemRouteData = () => {
             console.log()
             return (
-              <MainHomeRouteContainer>
-                <CardIndexRouteHome bannerCard>
-                  <CardVideo bannerTrending>
+              <MainHomeRouteContainer darktheme={darktheme}>
+                <CardIndexRouteHome bannerCard darktheme={darktheme}>
+                  <CardVideo bannerTrending darktheme={darktheme}>
                     {' '}
                     <RiPlayListAddFill />
                   </CardVideo>
-                  <h1>Saved Videos</h1>
+                  <HeadingindexItemsHome darktheme={darktheme}>
+                    Saved Videos
+                  </HeadingindexItemsHome>
                 </CardIndexRouteHome>
                 {renderBasedOnApistatus()}
               </MainHomeRouteContainer>
@@ -398,24 +458,17 @@ class SavedVideos extends Component {
 
           return (
             <>
-              {darktheme ? (
-                <ImgLogoHome
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-                  alt="nxt watch logo"
-                />
-              ) : (
-                <MainContainerHome data-testid="savedVideos">
-                  {navBarHome()}
-                  <CardIndexRouteHome>
-                    {' '}
-                    <MainIndexContainer>
-                      {indexTabItems()}
-                      {contactDetails()}
-                    </MainIndexContainer>
-                    {currentTabCallback()}
-                  </CardIndexRouteHome>
-                </MainContainerHome>
-              )}
+              <MainContainerHome data-testid="savedVideos">
+                {navBarHome()}
+                <CardIndexRouteHome>
+                  {' '}
+                  <MainIndexContainer darktheme={darktheme}>
+                    {indexTabItems()}
+                    {contactDetails()}
+                  </MainIndexContainer>
+                  {currentTabCallback()}
+                </CardIndexRouteHome>
+              </MainContainerHome>
             </>
           )
         }}

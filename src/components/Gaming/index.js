@@ -10,6 +10,7 @@ import ThemeContext from '../../context/ThemeContext'
 import {
   ProfileImgHome,
   IndexButton,
+  ButtonIcon,
   ImgLogoHome,
   ContainerIndexItems,
   MainContainerHome,
@@ -127,19 +128,31 @@ class Gaming extends Component {
           const navBarHome = () => {
             console.log()
             return (
-              <NavContainerHome>
+              <NavContainerHome darktheme={darktheme}>
                 <>
-                  <ImgLogoHome
-                    onClick={themeButtonChangeHome}
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                    alt="nxt watch logo"
-                  />
+                  {darktheme ? (
+                    <ImgLogoHome
+                      onClick={themeButtonChangeHome}
+                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
+                      alt="nxt watch logo"
+                    />
+                  ) : (
+                    <ImgLogoHome
+                      onClick={themeButtonChangeHome}
+                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                      alt="nxt watch logo"
+                    />
+                  )}
                 </>
-                <NavItemsCard>
+                <NavItemsCard darktheme={darktheme}>
                   {' '}
-                  <Button themeButton>
-                    <FaMoon onClick={darkthemeChangeNow} />
-                  </Button>{' '}
+                  <ButtonIcon themeButton darktheme={darktheme}>
+                    {darktheme ? (
+                      <FaMoon onClick={darkthemeChangeNow} />
+                    ) : (
+                      <FaMoon onClick={darkthemeChangeNow} />
+                    )}
+                  </ButtonIcon>
                   <ProfileImgHome
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                     alt="profile"
@@ -155,7 +168,7 @@ class Gaming extends Component {
                     >
                       {close => (
                         <CardVideo mainCardPopup>
-                          <CardVideo popup>
+                          <CardVideo popup darktheme={darktheme}>
                             <div>
                               <ParagraphContactHome
                                 popupText
@@ -197,8 +210,23 @@ class Gaming extends Component {
                 loader
                 className="loader-container"
                 data-testid="loader"
+                darktheme={darktheme}
               >
-                <Loader type="ThreeDots" color="black" height="50" width="50" />
+                {darktheme ? (
+                  <Loader
+                    type="ThreeDots"
+                    color="white"
+                    height="50"
+                    width="50"
+                  />
+                ) : (
+                  <Loader
+                    type="ThreeDots"
+                    color="black"
+                    height="50"
+                    width="50"
+                  />
+                )}
               </CardSearch>
             )
           }
@@ -223,20 +251,24 @@ class Gaming extends Component {
           const indexTabItems = () => {
             console.log()
             return (
-              <ContainerIndexItems>
+              <ContainerIndexItems darktheme={darktheme}>
                 <VLink to="/">
                   <IndexsCardHome
                     onClick={themeButtonChangeHome}
                     bgColor={currentTabValue === tabItems.home}
+                    darktheme={currentTabValue === tabItems.home}
                   >
                     <IndexButton
                       onClick={themeButtonChangeHome}
                       themeButton={currentTabValue === tabItems.home}
+                      darkthemenon={darktheme}
                     >
                       {' '}
-                      <FaHome />{' '}
+                      <FaHome />
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>Home</HeadingindexItemsHome>{' '}
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Home
+                    </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>{' '}
                 </VLink>
                 <VLink to="/trending">
@@ -244,16 +276,20 @@ class Gaming extends Component {
                   <IndexsCardHome
                     onClick={themeButtonChangeTrending}
                     bgColor={currentTabValue === tabItems.trending}
+                    darktheme={currentTabValue === tabItems.home}
                   >
                     {' '}
                     <IndexButton
                       onClick={themeButtonChangeTrending}
                       themeButton={currentTabValue === tabItems.trending}
+                      darkthemenon={darktheme}
                     >
                       {' '}
                       <FaFire />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>Trending</HeadingindexItemsHome>{' '}
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Trending
+                    </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>
                 </VLink>
                 <VLink to="/gaming">
@@ -261,32 +297,38 @@ class Gaming extends Component {
                   <IndexsCardHome
                     onClick={themeButtonChangeGaming}
                     bgColor={currentTabValue === tabItems.gaming}
+                    darktheme={darktheme}
                   >
                     {' '}
                     <IndexButton
                       onClick={themeButtonChangeGaming}
                       themeButton={currentTabValue === tabItems.gaming}
+                      darktheme={darktheme}
                     >
                       {' '}
                       <SiYoutubegaming />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>Gaming</HeadingindexItemsHome>{' '}
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Gaming
+                    </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>{' '}
                 </VLink>{' '}
                 <VLink to="/saved-videos">
                   <IndexsCardHome
                     onClick={themeButtonChangesavedVideos}
                     bgColor={currentTabValue === tabItems.savedVideos}
+                    darktheme={currentTabValue === tabItems.savedVideos}
                   >
                     {' '}
                     <IndexButton
                       onClick={themeButtonChangesavedVideos}
                       themeButton={currentTabValue === tabItems.savedVideos}
+                      darkthemenon={darktheme}
                     >
                       {' '}
                       <RiPlayListAddFill />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>
+                    <HeadingindexItemsHome darktheme={darktheme}>
                       {' '}
                       Saved videos{' '}
                     </HeadingindexItemsHome>{' '}
@@ -298,8 +340,10 @@ class Gaming extends Component {
           const contactDetails = () => {
             console.log()
             return (
-              <ContactContainer>
-                <p>CONTACT US</p>
+              <ContactContainer darktheme={darktheme}>
+                <ParagraphContactHome darktheme={darktheme}>
+                  CONTACT US
+                </ParagraphContactHome>
                 <ImgContactIcons
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png "
                   alt="facebook logo"
@@ -312,7 +356,7 @@ class Gaming extends Component {
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png "
                   alt="linked in logo"
                 />{' '}
-                <ParagraphContactHome>
+                <ParagraphContactHome darktheme={darktheme}>
                   Enjoy! Now to see your channels and recommendations!
                 </ParagraphContactHome>
               </ContactContainer>
@@ -336,15 +380,21 @@ class Gaming extends Component {
                             alt={eachVideo.title}
                           />
                           <CardVideo>
-                            <ParagraphContactHome VideoItem>
+                            <ParagraphContactHome
+                              VideoItem
+                              darktheme={darktheme}
+                            >
                               {eachVideo.title}
                             </ParagraphContactHome>
-                            <ParagraphContactHome VideoItem>
+                            <ParagraphContactHome
+                              VideoItem
+                              darktheme={darktheme}
+                            >
                               {eachVideo.title}
                             </ParagraphContactHome>
                             <MainHomeRouteContainer cardView>
                               {' '}
-                              <ParagraphContactHome>
+                              <ParagraphContactHome darktheme={darktheme}>
                                 {eachVideo.viewCount} views{' '}
                               </ParagraphContactHome>
                             </MainHomeRouteContainer>
@@ -361,8 +411,12 @@ class Gaming extends Component {
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
                       alt="no videos"
                     />
-                    <h1>No Search results found</h1>
-                    <p>Try different key words or remove search filter</p>
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      No Search results found
+                    </HeadingindexItemsHome>
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Try different key words or remove search filter
+                    </HeadingindexItemsHome>
                     <Button type="button">Retry</Button>
                   </div>
                 )}
@@ -385,12 +439,14 @@ class Gaming extends Component {
           const gamingRouteData = () => {
             console.log()
             return (
-              <MainHomeRouteContainer>
-                <CardIndexRouteHome bannerCard>
-                  <CardVideo bannerTrending>
+              <MainHomeRouteContainer darktheme={darktheme}>
+                <CardIndexRouteHome bannerCard darktheme={darktheme}>
+                  <CardVideo bannerTrending darktheme={darktheme}>
                     <SiYoutubegaming />
                   </CardVideo>
-                  <h1>Gaming</h1>
+                  <HeadingindexItemsHome darktheme={darktheme}>
+                    Gaming
+                  </HeadingindexItemsHome>
                 </CardIndexRouteHome>
                 <CardVideo>{renderBasedOnApistatus()}</CardVideo>
               </MainHomeRouteContainer>
@@ -409,24 +465,17 @@ class Gaming extends Component {
 
           return (
             <>
-              {darktheme ? (
-                <ImgLogoHome
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-                  alt="nxt watch logo"
-                />
-              ) : (
-                <MainContainerHome data-testid="home">
-                  {navBarHome()}
-                  <CardIndexRouteHome>
-                    {' '}
-                    <MainIndexContainer>
-                      {indexTabItems()}
-                      {contactDetails()}
-                    </MainIndexContainer>
-                    {currentTabCallback()}
-                  </CardIndexRouteHome>
-                </MainContainerHome>
-              )}
+              <MainContainerHome data-testid="home">
+                {navBarHome()}
+                <CardIndexRouteHome>
+                  {' '}
+                  <MainIndexContainer darktheme={darktheme}>
+                    {indexTabItems()}
+                    {contactDetails()}
+                  </MainIndexContainer>
+                  {currentTabCallback()}
+                </CardIndexRouteHome>
+              </MainContainerHome>
             </>
           )
         }}

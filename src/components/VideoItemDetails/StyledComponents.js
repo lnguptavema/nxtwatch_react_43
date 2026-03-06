@@ -1,6 +1,14 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
-//                 export const J = styled.h` `
+export const ButtonIcon = styled.button``
+
+export const VLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+  width: ${props => (props.popupText ? '20vw' : null)};
+  margin-bottom: ${props => (props.popupText ? '20px' : null)};
+`
 
 export const UL = styled.ul`
   display: flex;

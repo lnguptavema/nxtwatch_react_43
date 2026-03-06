@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import {FaMoon, FaHome, FaFire} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
+import Popup from 'reactjs-popup'
 import {RiPlayListAddFill} from 'react-icons/ri'
 import {BiLike, BiDislike} from 'react-icons/bi'
 import {formatDistanceToNow} from 'date-fns'
@@ -12,6 +13,8 @@ import ThemeContext from '../../context/ThemeContext'
 
 import {
   ProfileImgHome,
+  VLink,
+  ButtonIcon,
   IndexButton,
   ImgLogoHome,
   ContainerIndexItems,
@@ -149,29 +152,76 @@ class VideoItemDetails extends Component {
           const navBarHome = () => {
             console.log()
             return (
-              <NavContainerHome>
-                <>
+              <NavContainerHome darktheme={darktheme}>
+                {darktheme ? (
+                  <ImgLogoHome
+                    onClick={themeButtonChangeHome}
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
+                    alt="nxt watch logo"
+                  />
+                ) : (
                   <ImgLogoHome
                     onClick={themeButtonChangeHome}
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                     alt="nxt watch logo"
                   />
-                </>
-                <NavItemsCard>
+                )}
+                <NavItemsCard darktheme={darktheme}>
                   {' '}
-                  <Button themeButton>
-                    <FaMoon onClick={darkthemeChangeNow} />
-                  </Button>{' '}
+                  <ButtonIcon themeButton darktheme={darktheme}>
+                    {darktheme ? (
+                      <FaMoon onClick={darkthemeChangeNow} />
+                    ) : (
+                      <FaMoon onClick={darkthemeChangeNow} />
+                    )}
+                  </ButtonIcon>
                   <ProfileImgHome
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                     alt="profile"
                   />
-                  <Link to="/login">
-                    {' '}
-                    <Button type="button" onClick={clickedLogout}>
-                      Logout
-                    </Button>
-                  </Link>
+                  <CardVideo>
+                    <Popup
+                      modal
+                      trigger={
+                        <Button logbtn darktheme={darktheme} type="button">
+                          Logout
+                        </Button>
+                      }
+                    >
+                      {close => (
+                        <CardVideo mainCardPopup>
+                          <CardVideo popup darktheme={darktheme}>
+                            <div>
+                              <ParagraphContactHome
+                                popupText
+                                darktheme={darktheme}
+                              >
+                                Are you sure, you want to logout ?
+                              </ParagraphContactHome>
+                            </div>
+                            <CardVideo btns>
+                              <Button
+                                type="button"
+                                className="trigger-button"
+                                onClick={() => close()}
+                                cancelBtn
+                                darktheme={darktheme}
+                              >
+                                Cancel
+                              </Button>
+                              <Button
+                                confirmBtn
+                                type="button"
+                                onClick={clickedLogout}
+                              >
+                                Confirm
+                              </Button>
+                            </CardVideo>
+                          </CardVideo>
+                        </CardVideo>
+                      )}
+                    </Popup>
+                  </CardVideo>
                 </NavItemsCard>
               </NavContainerHome>
             )
@@ -210,7 +260,7 @@ class VideoItemDetails extends Component {
             console.log()
             return (
               <ContainerIndexItems>
-                <Link to="/">
+                <VLink to="/">
                   <IndexsCardHome
                     onClick={themeButtonChangeHome}
                     bgColor={currentTabValue === tabItems.home}
@@ -224,8 +274,8 @@ class VideoItemDetails extends Component {
                     </IndexButton>{' '}
                     <HeadingindexItemsHome>Home</HeadingindexItemsHome>{' '}
                   </IndexsCardHome>{' '}
-                </Link>
-                <Link to="/trending">
+                </VLink>
+                <VLink to="/trending">
                   {' '}
                   <IndexsCardHome
                     onClick={themeButtonChangeTrending}
@@ -241,8 +291,8 @@ class VideoItemDetails extends Component {
                     </IndexButton>{' '}
                     <HeadingindexItemsHome>Trending</HeadingindexItemsHome>{' '}
                   </IndexsCardHome>
-                </Link>
-                <Link to="/gaming">
+                </VLink>
+                <VLink to="/gaming">
                   {' '}
                   <IndexsCardHome
                     onClick={themeButtonChangeGaming}
@@ -258,8 +308,8 @@ class VideoItemDetails extends Component {
                     </IndexButton>{' '}
                     <HeadingindexItemsHome>Gaming</HeadingindexItemsHome>{' '}
                   </IndexsCardHome>{' '}
-                </Link>{' '}
-                <Link to="/saved-videos">
+                </VLink>{' '}
+                <VLink to="/saved-videos">
                   <IndexsCardHome
                     onClick={themeButtonChangesavedVideos}
                     bgColor={currentTabValue === tabItems.savedVideos}
@@ -277,7 +327,7 @@ class VideoItemDetails extends Component {
                       Saved videos{' '}
                     </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>
-                </Link>{' '}
+                </VLink>{' '}
               </ContainerIndexItems>
             )
           }
@@ -436,24 +486,17 @@ class VideoItemDetails extends Component {
 
           return (
             <>
-              {darktheme ? (
-                <ImgLogoHome
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-                  alt="nxt watch logo"
-                />
-              ) : (
-                <MainContainerHome data-testid="home">
-                  {navBarHome()}
-                  <CardIndexRouteHome>
-                    {' '}
-                    <MainIndexContainer>
-                      {indexTabItems()}
-                      {contactDetails()}
-                    </MainIndexContainer>
-                    {currentTabCallback()}
-                  </CardIndexRouteHome>
-                </MainContainerHome>
-              )}
+              <MainContainerHome data-testid="home">
+                {navBarHome()}
+                <CardIndexRouteHome>
+                  {' '}
+                  <MainIndexContainer>
+                    {indexTabItems()}
+                    {contactDetails()}
+                  </MainIndexContainer>
+                  {currentTabCallback()}
+                </CardIndexRouteHome>
+              </MainContainerHome>
             </>
           )
         }}
