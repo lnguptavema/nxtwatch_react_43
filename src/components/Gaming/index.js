@@ -98,6 +98,7 @@ class Gaming extends Component {
           const darkthemeChangeNow = () => {
             darkthemeChange()
           }
+
           const clickedLogout = () => {
             Cookies.remove('jwt_token')
             this.renderVideosHome()
