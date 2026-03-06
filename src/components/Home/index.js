@@ -11,6 +11,7 @@ import {Redirect} from 'react-router-dom'
 import ThemeContext from '../../context/ThemeContext'
 import {
   ProfileImgHome,
+  ButtonIcon,
   VLink,
   IndexButton,
   ImgLogoHome,
@@ -81,7 +82,7 @@ class Home extends Component {
   }
 
   renderVideosHome = async () => {
-    this.setState({currentApiStatus: apiStatus.loading})
+    this.setState({currentApiStatus: apiStatus.loading, inputSearch: ''})
     const apiUrl = 'https://apis.ccbp.in/videos/all?search='
     const jwtToken = Cookies.get('jwt_token')
     const options = {
@@ -175,7 +176,7 @@ class Home extends Component {
                   )}
                 </>
                 <NavItemsCard>
-                  <Button
+                  <ButtonIcon
                     darktheme={darktheme}
                     type="button"
                     data-testid="theme"
@@ -185,7 +186,7 @@ class Home extends Component {
                     ) : (
                       <FaMoon onClick={darkthemeChangeNow} />
                     )}
-                  </Button>{' '}
+                  </ButtonIcon>{' '}
                   <ProfileImgHome
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                     alt="profile"
@@ -194,7 +195,7 @@ class Home extends Component {
                     <Popup
                       modal
                       trigger={
-                        <Button logbtn darktheme={darktheme} type="button">
+                        <Button logbtn darkthemenon={darktheme} type="button">
                           Logout
                         </Button>
                       }
@@ -242,10 +243,25 @@ class Home extends Component {
             return (
               <CardSearch
                 loader
+                darktheme={darktheme}
                 className="loader-container"
                 data-testid="loader"
               >
-                <Loader type="ThreeDots" color="black" height="50" width="50" />
+                {darktheme ? (
+                  <Loader
+                    type="ThreeDots"
+                    color="white"
+                    height="50"
+                    width="50"
+                  />
+                ) : (
+                  <Loader
+                    type="ThreeDots"
+                    color="black"
+                    height="50"
+                    width="50"
+                  />
+                )}{' '}
               </CardSearch>
             )
           }
@@ -295,7 +311,7 @@ class Home extends Component {
                   <IndexsCardHome
                     darktheme={currentTab === tabItems.trending}
                     onClick={themeButtonChangeTrending}
-                    bgColor={currentTabValue === tabItems.trending}
+                    bgColor={currentTab === tabItems.trending}
                   >
                     {' '}
                     <IndexButton
