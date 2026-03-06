@@ -170,7 +170,7 @@ export const NavItemsCard = styled.div`
 `
 
 export const MainContainerHome = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 `
 

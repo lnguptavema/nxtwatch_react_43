@@ -5,7 +5,7 @@ export const UL = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  overflow: scroll;
+  overflow: auto;
   height: 80vh;
   width: 80vw;
 `
@@ -35,6 +35,8 @@ export const CardVideo = styled.div`
   width: ${props => (props.mainCardPopup ? '100vw' : null)};
   background-color: ${props =>
     props.mainCardPopup ? 'rgba(0, 0, 0, 0.7)' : null};
+
+  background-color: ${props => (props.darktheme ? '#383838' : null)};
 
   justify-content: ${props => (props.nosearch ? 'center' : null)};
   align-self: ${props => (props.nosearch ? 'center' : null)};
@@ -74,6 +76,8 @@ export const InputSearch = styled.input`
   outline: none;
   color: ${props => (props.darktheme ? 'white' : null)};
 
+  border: ${props => (props.darktheme ? '2px solid #424242' : null)};
+
   background-color: ${props => (props.darktheme ? 'black' : null)};
 `
 export const ButtonSearch = styled.button`
@@ -83,7 +87,7 @@ export const ButtonSearch = styled.button`
   border: #64748b 1px solid;
   width: 6vw;
 
-  background-color: ${props => (props.darktheme ? '#606060' : null)};
+  background-color: ${props => (props.darktheme ? ' #313131' : null)};
   border: ${props => (props.darktheme ? '0px solid' : null)};
   color: ${props => (props.darktheme ? '#cccccc' : null)};
 `
@@ -104,7 +108,8 @@ export const ButtonClose = styled.button`
   border: 0px solid;
   height: 5vh;
   width: 2vw;
-  margin: 10px;
+  margin: 0px;
+  padding: 0px;
   font-size: 30px;
   outline: none;
   color: ${props => (props.darktheme ? 'white' : null)};
@@ -126,6 +131,7 @@ export const ParagraphContactHome = styled.p`
   margin-top: ${props => (props.VideoItemView ? '0px' : null)};
 
   color: ${props => (props.darktheme ? 'white' : null)};
+
   width: ${props => (props.popupText ? '20vw' : null)};
   margin-bottom: ${props => (props.popupText ? '20px' : null)};
 `
@@ -184,7 +190,7 @@ export const CardIndexRouteHome = styled.div`
   display: flex;
   justify-content: ${props => (props.bannerCard ? 'space-around' : null)};
   height: ${props => (props.bannerCard ? '40vh' : null)};
-  width: ${props => (props.bannerCard ? '80vw' : null)};
+  width: ${props => (props.bannerCard ? '78vw' : null)};
 `
 
 export const IndexsCardHome = styled.div`
@@ -245,7 +251,7 @@ export const Button = styled.button`
   background-color: ${props => (props.confirmBtn ? '#3b82f6' : null)};
   margin-left: ${props => (props.confirmBtn ? '10px' : null)};
 
-  background-color: ${props => (props.cancelBtn ? '#ebebeb' : null)};
+  background-color: ${props => (props.darktheme ? 'black' : null)};
   border: ${props => (props.cancelBtn ? '1px solid' : null)};
 `
 export const ImgLogoHome = styled.img`

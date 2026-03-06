@@ -430,24 +430,17 @@ class Trending extends Component {
 
           return (
             <>
-              {darktheme ? (
-                <ImgLogoHome
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-                  alt="nxt watch logo"
-                />
-              ) : (
-                <MainContainerHome data-testid="home">
-                  {navBarHome()}
-                  <CardIndexRouteHome>
-                    {' '}
-                    <MainIndexContainer>
-                      {indexTabItems()}
-                      {contactDetails()}
-                    </MainIndexContainer>
-                    {currentTabCallback()}
-                  </CardIndexRouteHome>
-                </MainContainerHome>
-              )}
+              <MainContainerHome data-testid="home">
+                {navBarHome()}
+                <CardIndexRouteHome>
+                  {' '}
+                  <MainIndexContainer>
+                    {indexTabItems()}
+                    {contactDetails()}
+                  </MainIndexContainer>
+                  {currentTabCallback()}
+                </CardIndexRouteHome>
+              </MainContainerHome>
             </>
           )
         }}

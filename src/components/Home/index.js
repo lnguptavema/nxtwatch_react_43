@@ -201,7 +201,7 @@ class Home extends Component {
                     >
                       {close => (
                         <CardVideo mainCardPopup>
-                          <CardVideo popup>
+                          <CardVideo popup darktheme={darktheme}>
                             <div>
                               <ParagraphContactHome
                                 popupText
@@ -216,6 +216,7 @@ class Home extends Component {
                                 className="trigger-button"
                                 onClick={() => close()}
                                 cancelBtn
+                                darktheme={darktheme}
                               >
                                 Cancel
                               </Button>
