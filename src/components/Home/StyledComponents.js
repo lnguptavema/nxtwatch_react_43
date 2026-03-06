@@ -65,6 +65,8 @@ export const CardSearch = styled.div`
   display: ${props => (props.loader ? 'flex' : null)};
   justify-content: ${props => (props.loader ? 'center' : null)};
   height: ${props => (props.loader ? '100vh' : null)};
+
+  background-color: ${props => (props.darktheme ? 'black' : null)};
 `
 
 export const InputSearch = styled.input`
@@ -239,9 +241,14 @@ export const Button = styled.button`
   color: ${props => (props.darktheme ? 'white' : 'black')};
   background-color: ${props => (props.darktheme ? 'black' : 'white')};
   border: ${props => (props.darktheme ? '0px solid' : '0px solid blue')};
+
   border: ${props => (props.logbtn ? '1px solid' : '0px solid blue')};
   outline: none;
   cursor: pointer;
+
+  color: ${props => (props.darkthemenon ? 'white' : 'blue')};
+  background-color: ${props => (props.darkthemenon ? 'black' : 'white')};
+  border: ${props => (props.darkthemenon ? '1px solid' : '1px solid blue')};
 
   border: ${props => (props.retrybtn ? '1px solid' : null)};
   margin-left: ${props => (props.retrybtn ? '130px' : null)};
@@ -254,6 +261,15 @@ export const Button = styled.button`
   background-color: ${props => (props.darktheme ? 'black' : null)};
   border: ${props => (props.cancelBtn ? '1px solid' : null)};
 `
+
+export const ButtonIcon = styled.button`
+  outline: none;
+  cursor: pointer;
+  color: ${props => (props.darktheme ? 'white' : 'black')};
+  background-color: ${props => (props.darktheme ? 'black' : 'white')};
+  border: ${props => (props.darktheme ? '0px solid' : '0px solid blue')};
+`
+
 export const ImgLogoHome = styled.img`
   height: 7vh;
   width: 10vw;

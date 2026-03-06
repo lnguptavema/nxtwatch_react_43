@@ -134,18 +134,31 @@ class Trending extends Component {
           const navBarHome = () => {
             console.log()
             return (
-              <NavContainerHome>
+              <NavContainerHome darktheme={darktheme}>
                 <>
-                  <ImgLogoHome
-                    onClick={themeButtonChangeHome}
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                    alt="nxt watch logo"
-                  />
-                </>
-                <NavItemsCard>
                   {' '}
-                  <Button themeButton>
-                    <FaMoon onClick={darkthemeChangeNow} />
+                  {darktheme ? (
+                    <ImgLogoHome
+                      onClick={themeButtonChangeHome}
+                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
+                      alt="nxt watch logo"
+                    />
+                  ) : (
+                    <ImgLogoHome
+                      onClick={themeButtonChangeHome}
+                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                      alt="nxt watch logo"
+                    />
+                  )}
+                </>
+                <NavItemsCard darktheme={darktheme}>
+                  {' '}
+                  <Button themeButton darktheme={darktheme}>
+                    {darktheme ? (
+                      <FaMoon onClick={darkthemeChangeNow} />
+                    ) : (
+                      <FaMoon onClick={darkthemeChangeNow} />
+                    )}
                   </Button>{' '}
                   <ProfileImgHome
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
@@ -162,7 +175,7 @@ class Trending extends Component {
                     >
                       {close => (
                         <CardVideo mainCardPopup>
-                          <CardVideo popup>
+                          <CardVideo popup darktheme={darktheme}>
                             <div>
                               <ParagraphContactHome
                                 popupText
@@ -177,6 +190,7 @@ class Trending extends Component {
                                 className="trigger-button"
                                 onClick={() => close()}
                                 cancelBtn
+                                darktheme={darktheme}
                               >
                                 Cancel
                               </Button>
@@ -202,10 +216,25 @@ class Trending extends Component {
             return (
               <CardSearch
                 loader
+                darktheme={darktheme}
                 className="loader-container"
                 data-testid="loader"
               >
-                <Loader type="ThreeDots" color="black" height="50" width="50" />
+                {darktheme ? (
+                  <Loader
+                    type="ThreeDots"
+                    color="white"
+                    height="50"
+                    width="50"
+                  />
+                ) : (
+                  <Loader
+                    type="ThreeDots"
+                    color="black"
+                    height="50"
+                    width="50"
+                  />
+                )}
               </CardSearch>
             )
           }
@@ -230,20 +259,24 @@ class Trending extends Component {
           const indexTabItems = () => {
             console.log()
             return (
-              <ContainerIndexItems>
+              <ContainerIndexItems darktheme={darktheme}>
                 <VLink to="/">
                   <IndexsCardHome
                     onClick={themeButtonChangeHome}
                     bgColor={currentTabValue === tabItems.home}
+                    darktheme={currentTabValue === tabItems.home}
                   >
                     <IndexButton
                       onClick={themeButtonChangeHome}
                       themeButton={currentTabValue === tabItems.home}
+                      darkthemenon={darktheme}
                     >
                       {' '}
                       <FaHome />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>Home</HeadingindexItemsHome>{' '}
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Home
+                    </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>{' '}
                 </VLink>
                 <VLink to="/trending">
@@ -251,16 +284,20 @@ class Trending extends Component {
                   <IndexsCardHome
                     onClick={themeButtonChangeTrending}
                     bgColor={currentTabValue === tabItems.trending}
+                    darktheme={darktheme}
                   >
                     {' '}
                     <IndexButton
                       onClick={themeButtonChangeTrending}
                       themeButton={currentTabValue === tabItems.trending}
+                      darktheme={darktheme}
                     >
                       {' '}
                       <FaFire />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>Trending</HeadingindexItemsHome>{' '}
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Trending
+                    </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>
                 </VLink>
                 <VLink to="/gaming">
@@ -268,32 +305,38 @@ class Trending extends Component {
                   <IndexsCardHome
                     onClick={themeButtonChangeGaming}
                     bgColor={currentTab === tabItems.gaming}
+                    darktheme={currentTab === tabItems.gaming}
                   >
                     {' '}
                     <IndexButton
                       onClick={themeButtonChangeGaming}
                       themeButton={currentTab === tabItems.gaming}
+                      darkthemenon={darktheme}
                     >
                       {' '}
                       <SiYoutubegaming />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>Gaming</HeadingindexItemsHome>{' '}
+                    <HeadingindexItemsHome darktheme={darktheme}>
+                      Gaming
+                    </HeadingindexItemsHome>{' '}
                   </IndexsCardHome>{' '}
                 </VLink>{' '}
                 <VLink to="/saved-videos">
                   <IndexsCardHome
                     onClick={themeButtonChangesavedVideos}
                     bgColor={currentTab === tabItems.savedVideos}
+                    darktheme={currentTab === tabItems.savedVideos}
                   >
                     {' '}
                     <IndexButton
                       onClick={themeButtonChangesavedVideos}
                       themeButton={currentTab === tabItems.savedVideos}
+                      darkthemenon={darktheme}
                     >
                       {' '}
                       <RiPlayListAddFill />{' '}
                     </IndexButton>{' '}
-                    <HeadingindexItemsHome>
+                    <HeadingindexItemsHome darktheme={darktheme}>
                       {' '}
                       Saved videos{' '}
                     </HeadingindexItemsHome>{' '}
@@ -305,8 +348,10 @@ class Trending extends Component {
           const contactDetails = () => {
             console.log()
             return (
-              <ContactContainer>
-                <p>CONTACT US</p>
+              <ContactContainer darktheme={darktheme}>
+                <ParagraphContactHome darktheme={darktheme}>
+                  CONTACT US{' '}
+                </ParagraphContactHome>
                 <ImgContactIcons
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png "
                   alt="facebook logo"
@@ -319,7 +364,7 @@ class Trending extends Component {
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png "
                   alt="linked in logo"
                 />{' '}
-                <ParagraphContactHome>
+                <ParagraphContactHome darktheme={darktheme}>
                   Enjoy! Now to see your channels and recommendations!
                 </ParagraphContactHome>
               </ContactContainer>
@@ -351,18 +396,24 @@ class Trending extends Component {
                             />
                             <CardVideo>
                               <div>
-                                <ParagraphContactHome VideoItem>
+                                <ParagraphContactHome
+                                  VideoItem
+                                  darktheme={darktheme}
+                                >
                                   {eachVideo.title}{' '}
                                 </ParagraphContactHome>
-                                <ParagraphContactHome VideoItem>
+                                <ParagraphContactHome
+                                  VideoItem
+                                  darktheme={darktheme}
+                                >
                                   {eachVideo.channel.name}{' '}
                                 </ParagraphContactHome>
                                 <MainHomeRouteContainer cardView>
                                   {' '}
-                                  <ParagraphContactHome>
+                                  <ParagraphContactHome darktheme={darktheme}>
                                     {eachVideo.viewCount} views{' '}
                                   </ParagraphContactHome>
-                                  <ParagraphContactHome>
+                                  <ParagraphContactHome darktheme={darktheme}>
                                     {renderDate(eachVideo.publishedAt)} ago
                                   </ParagraphContactHome>
                                 </MainHomeRouteContainer>
@@ -381,8 +432,12 @@ class Trending extends Component {
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
                       alt="no videos"
                     />
-                    <h1>No Search results found</h1>
-                    <p>Try different key words or remove search filter</p>
+                    <HeadingindexItemsHome nosearch darktheme={darktheme}>
+                      No Search results found
+                    </HeadingindexItemsHome>
+                    <HeadingindexItemsHome nosearch darktheme={darktheme}>
+                      Try different key words or remove search filter
+                    </HeadingindexItemsHome>
                     <Button type="button">Retry</Button>
                   </div>
                 )}
@@ -405,13 +460,15 @@ class Trending extends Component {
           const trendingRouteData = () => {
             console.log()
             return (
-              <MainHomeRouteContainer>
-                <CardIndexRouteHome bannerCard>
-                  <CardVideo bannerTrending>
+              <MainHomeRouteContainer darktheme={darktheme}>
+                <CardIndexRouteHome bannerCard darktheme={darktheme}>
+                  <CardVideo bannerTrending darktheme={darktheme}>
                     {' '}
                     <FaFire />
                   </CardVideo>
-                  <h1>Trending</h1>
+                  <HeadingindexItemsHome darktheme={darktheme}>
+                    Trending
+                  </HeadingindexItemsHome>
                 </CardIndexRouteHome>
                 <div>{renderBasedOnApistatus()}</div>
               </MainHomeRouteContainer>
@@ -434,7 +491,7 @@ class Trending extends Component {
                 {navBarHome()}
                 <CardIndexRouteHome>
                   {' '}
-                  <MainIndexContainer>
+                  <MainIndexContainer darktheme={darktheme}>
                     {indexTabItems()}
                     {contactDetails()}
                   </MainIndexContainer>
