@@ -178,21 +178,23 @@ class Gaming extends Component {
                               </ParagraphContactHome>
                             </div>
                             <CardVideo btns>
-                              <Button
+                              <ButtonIcon
                                 type="button"
                                 className="trigger-button"
                                 onClick={() => close()}
                                 cancelBtn
+                                darktheme={darktheme}
                               >
                                 Cancel
-                              </Button>
-                              <Button
+                              </ButtonIcon>
+                              <ButtonIcon
+                                darktheme={darktheme}
                                 confirmBtn
                                 type="button"
                                 onClick={clickedLogout}
                               >
                                 Confirm
-                              </Button>
+                              </ButtonIcon>
                             </CardVideo>
                           </CardVideo>
                         </CardVideo>

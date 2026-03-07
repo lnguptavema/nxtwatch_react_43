@@ -142,8 +142,10 @@ export const Button = styled.button`
   background-color: ${props => (props.cancelBtn ? '#ebebeb' : null)};
   border: ${props => (props.cancelBtn ? '1px solid' : null)};
   color: ${props => (props.cancelBtn ? 'black' : null)};
+  margin-right: ${props => (props.cancelBtn ? '10px' : null)};
 
   color: ${props => (props.darktheme ? 'white' : 'blue')};
+  background-color: ${props => (props.darktheme ? 'black' : 'white')};
   border: ${props => (props.darktheme ? '1px solid' : '1px solid blue')};
   background-color: ${props => (props.darktheme ? ' #212121' : null)};
 `
@@ -270,13 +272,18 @@ export const ButtonIcon = styled.button`
   border: ${props => (props.darktheme ? '0px solid' : '0px solid blue')};
   background-color: ${props => (props.darktheme ? ' #212121' : null)};
 
-  background-color: ${props => (props.themeButton ? 'transparent' : 'white')};
   border: ${props => (props.themeButton ? '0px solid' : '1px solid blue')};
-  color: ${props => (props.themeButton ? null : 'blue')};
+
   height: 5vh;
   outline: none;
   cursor: pointer;
   width: 5vw;
+
+  color: ${props => (props.confirmBtn ? 'white' : null)};
+  background-color: ${props => (props.confirmBtn ? '#3b82f6' : null)};
+  margin-left: ${props => (props.confirmBtn ? '10px' : null)};
+
+  border: ${props => (props.cancelBtn ? '1px solid' : null)};
 `
 
 export const ImgLogoHome = styled.img`

@@ -212,7 +212,7 @@ class Home extends Component {
                               </ParagraphContactHome>
                             </div>
                             <CardVideo btns>
-                              <Button
+                              <ButtonIcon
                                 type="button"
                                 className="trigger-button"
                                 onClick={() => close()}
@@ -220,14 +220,15 @@ class Home extends Component {
                                 darktheme={darktheme}
                               >
                                 Cancel
-                              </Button>
-                              <Button
+                              </ButtonIcon>
+                              <ButtonIcon
                                 confirmBtn
+                                darktheme={darktheme}
                                 type="button"
                                 onClick={clickedLogout}
                               >
                                 Confirm
-                              </Button>
+                              </ButtonIcon>
                             </CardVideo>
                           </CardVideo>
                         </CardVideo>

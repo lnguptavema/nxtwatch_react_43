@@ -157,7 +157,7 @@ class SavedVideos extends Component {
                               </ParagraphContactHome>
                             </div>
                             <CardVideo btns>
-                              <Button
+                              <ButtonIcon
                                 type="button"
                                 className="trigger-button"
                                 onClick={() => close()}
@@ -165,14 +165,15 @@ class SavedVideos extends Component {
                                 darktheme={darktheme}
                               >
                                 Cancel
-                              </Button>
-                              <Button
+                              </ButtonIcon>
+                              <ButtonIcon
+                                darktheme={darktheme}
                                 confirmBtn
                                 type="button"
                                 onClick={clickedLogout}
                               >
                                 Confirm
-                              </Button>
+                              </ButtonIcon>
                             </CardVideo>
                           </CardVideo>
                         </CardVideo>
