@@ -1,23 +1,27 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
-export const ButtonIcon = styled.button``
+export const ButtonIcon = styled.button`
+  color: 'red';
+  color: ${props => (props.darktheme ? 'white' : 'black')};
+  background-color: ${props => (props.darktheme ? 'black' : 'white')};
+  border: ${props => (props.darktheme ? '0px solid' : '0px solid blue')};
+  background-color: ${props => (props.darktheme ? ' #212121' : null)};
+
+  background-color: ${props => (props.themeButton ? 'transparent' : 'white')};
+  border: ${props => (props.themeButton ? '0px solid' : '1px solid blue')};
+  color: ${props => (props.themeButton ? null : 'blue')};
+  height: 5vh;
+  outline: none;
+  cursor: pointer;
+  width: 5vw;
+`
 
 export const VLink = styled(Link)`
   color: black;
   text-decoration: none;
   width: ${props => (props.popupText ? '20vw' : null)};
   margin-bottom: ${props => (props.popupText ? '20px' : null)};
-`
-
-export const UL = styled.ul`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  overflow: scroll;
-  height: 80vh;
-  width: 90vw;
 `
 export const ImgThumbnailvideo = styled.img`
   height: ${props => (props.nosearchImg ? '50vh' : '30vh')};
@@ -50,6 +54,24 @@ export const CardVideo = styled.div`
 
   width: ${props => (props.mainCardVideoItem ? '65vw' : null)};
   flex-direction: ${props => (props.mainCardVideoItem ? 'column' : null)};
+
+  height: ${props => (props.popup ? '30vh' : null)};
+  width: ${props => (props.popup ? '25vw' : null)};
+  padding: ${props => (props.popup ? '40px' : null)};
+  flex-direction: ${props => (props.mainCardPopup ? 'column' : null)};
+  flex-direction: ${props => (props.popup ? 'column' : null)};
+  justify-content: ${props => (props.mainCardPopup ? 'center' : null)};
+  align-self: ${props => (props.popup ? 'center' : null)};
+  height: ${props => (props.mainCardPopup ? '100vh' : null)};
+  width: ${props => (props.mainCardPopup ? '100vw' : null)};
+  margin: ${props => (props.mainCardPopup ? '0px' : null)};
+  color: ${props => (props.mainCardPopup ? 'black' : null)};
+  justify-content: ${props => (props.popup ? 'center' : null)};
+  align-items: ${props => (props.popup ? 'center' : null)};
+  background-color: ${props => (props.popup ? 'white' : null)};
+  border-radius: ${props => (props.popup ? '10px' : null)};
+
+  background-color: ${props => (props.darktheme ? 'black' : null)};
 `
 export const ParagraphContactHome = styled.p`
   width: ${props => (props.BuyPara ? '23vw' : '13vw')};
@@ -60,16 +82,8 @@ export const ParagraphContactHome = styled.p`
   width: ${props => (props.hrTag ? '75vw' : null)};
 
   width: ${props => (props.descVideoItem ? '70vw' : null)};
-`
 
-export const ListItemVideoHome = styled.li`
-  list-style-type: none;
-  margin: 15px;
-  width: 80vw;
-  display: flex;
-  outline: none;
-  cursor: pointer;
-  justify-content: space-between;
+  color: ${props => (props.darktheme ? 'white' : null)};
 `
 
 export const CardSearch = styled.div`
@@ -77,20 +91,10 @@ export const CardSearch = styled.div`
   display: ${props => (props.loader ? 'flex' : null)};
   justify-content: ${props => (props.loader ? 'center' : null)};
   height: ${props => (props.loader ? '100vh' : null)};
-`
+  width:${props => (props.loader ? '90vw' : null)};
+  align-items:${props => (props.loader ? 'center' : null)}
 
-export const InputSearch = styled.input`
-  height: 6vh;
-  width: 30vw;
-  padding: 10px;
-  outline: none;
-`
-export const ButtonSearch = styled.button`
-  height: 6vh;
-  cursor: pointer;
-  outline: none;
-  border: #64748b 1px solid;
-  width: 6vw;
+  background-color: ${props => (props.darktheme ? 'black' : null)};
 `
 
 export const Button = styled.button`
@@ -115,6 +119,24 @@ export const Button = styled.button`
   color: ${props => (props.disliked ? '#2563eb' : null)};
 
   color: ${props => (props.save ? '#2563eb' : null)};
+
+  color: ${props => (props.confirmBtn ? 'white' : null)};
+  background-color: ${props => (props.confirmBtn ? '#3b82f6' : null)};
+  margin-left: ${props => (props.confirmBtn ? '10px' : null)};
+
+  background-color: ${props => (props.cancelBtn ? '#ebebeb' : null)};
+  border: ${props => (props.cancelBtn ? '1px solid' : null)};
+  color: ${props => (props.cancelBtn ? 'black' : null)};
+`
+
+export const LogBtn = styled.button`
+  color: ${props => (props.darktheme ? 'white' : 'blue')};
+  background-color: ${props => (props.darktheme ? 'black' : 'white')};
+  border: ${props => (props.darktheme ? '1px solid white' : '1px solid blue')};
+  outline: none;
+  cursor: pointer;
+  height: 5vh;
+  width: 5vw;
 `
 
 export const MainHomeRouteContainer = styled.div`
@@ -122,6 +144,8 @@ export const MainHomeRouteContainer = styled.div`
   flex-direction: ${props => (props.cardView ? 'row' : 'column')};
   justify-content: ${props => (props.cardView ? 'center' : null)};
   align-items: ${props => (props.cardView ? 'center' : null)};
+
+  background-color: ${props => (props.darktheme ? 'black' : null)};
 `
 
 export const ImgContactIcons = styled.img`
@@ -136,19 +160,27 @@ export const MainIndexContainer = styled.div`
   justify-content: space-between;
   height: 100vh;
   flex-direction: column;
+
+  background-color: ${props => (props.darktheme ? ' #212121' : 'null')};
 `
 
 export const ContactContainer = styled.div`
   padding: 40px;
+
+  background-color: ${props => (props.darktheme ? ' #212121' : 'null')};
 `
 
 export const ContainerIndexItems = styled.div`
   width: 20vw;
   margin-top: 40px;
+
+  background-color: ${props => (props.darktheme ? ' #212121' : 'null')};
 `
 export const HeadingindexItemsHome = styled.h1`
   font-size: 20px;
   width: 10vw;
+
+  color: ${props => (props.darktheme ? 'white' : null)};
 `
 
 export const NavItemsCard = styled.div`
@@ -156,11 +188,15 @@ export const NavItemsCard = styled.div`
   width: 15vw;
   justify-content: space-between;
   align-items: center;
+
+  background-color: ${props => (props.darktheme ? ' #212121' : null)};
 `
 
 export const MainContainerHome = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
+
+  background-color: ${props => (props.darktheme ? 'black' : null)};
 `
 
 export const CardIndexRouteHome = styled.div`
@@ -171,6 +207,8 @@ export const CardIndexRouteHome = styled.div`
   justify-content: ${props => (props.bannerCard ? 'flex-start' : null)};
   height: ${props => (props.bannerCard ? '20vh' : null)};
   width: ${props => (props.bannerCard ? '80vw' : null)};
+
+  background-color: ${props => (props.darktheme ? '#181818' : null)};
 `
 
 export const IndexsCardHome = styled.div`
@@ -183,6 +221,8 @@ export const IndexsCardHome = styled.div`
   width: 20vw;
   background-color: ${props => (props.bgColor ? '#e2e8f0' : 'null')};
   cursor: pointer;
+
+  background-color: ${props => (props.darktheme ? '#424242' : null)};
 `
 export const ProfileImgHome = styled.img`
   height: 5vh;
@@ -194,6 +234,8 @@ export const NavContainerHome = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+
+  background-color: ${props => (props.darktheme ? '#212121' : null)};
 `
 export const IndexButton = styled.button`
   border: ${props => (props.themeButton ? '0px solid' : '0px solid blue')};
@@ -203,6 +245,9 @@ export const IndexButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   width: 5vw;
+
+  color: ${props => (props.darktheme ? 'red' : null)};
+  color: ${props => (props.darkthemenon ? '#909090' : 'null')};
 `
 
 export const ImgLogoHome = styled.img`

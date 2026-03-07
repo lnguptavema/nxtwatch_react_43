@@ -139,7 +139,7 @@ export const ImgContactIcons = styled.img`
 export const MainIndexContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 100vh;
+  height: 110vh;
   flex-direction: column;
 
   background-color: ${props => (props.darktheme ? ' #212121' : 'null')};
