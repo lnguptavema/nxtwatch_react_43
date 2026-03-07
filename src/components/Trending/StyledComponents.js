@@ -250,9 +250,9 @@ export const Button = styled.button`
   border: ${props => (props.cancelBtn ? '1px solid' : null)};
   color: ${props => (props.cancelBtn ? 'black' : null)};
 
-  color: ${props => (props.darktheme ? 'white' : 'black')};
+  color: ${props => (props.darktheme ? 'white' : 'blue')};
   background-color: ${props => (props.darktheme ? 'black' : 'white')};
-  border: ${props => (props.darktheme ? '0px solid' : '0px solid blue')};
+  border: ${props => (props.darktheme ? '1px solid' : '1px solid blue')};
   background-color: ${props => (props.darktheme ? ' #212121' : null)};
 `
 
