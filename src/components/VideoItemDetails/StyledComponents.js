@@ -8,13 +8,18 @@ export const ButtonIcon = styled.button`
   border: ${props => (props.darktheme ? '0px solid' : '0px solid blue')};
   background-color: ${props => (props.darktheme ? ' #212121' : null)};
 
-  background-color: ${props => (props.themeButton ? 'transparent' : 'white')};
-  border: ${props => (props.themeButton ? '0px solid' : '1px solid blue')};
-  color: ${props => (props.themeButton ? null : 'blue')};
   height: 5vh;
   outline: none;
   cursor: pointer;
   width: 5vw;
+
+  background-color: ${props => (props.darktheme ? '#212121' : 'white')};
+  background-color: ${props => (props.confirmBtn ? '#3b82f6' : null)};
+  color: ${props => (props.confirmBtn ? 'white' : null)};
+  border: ${props => (props.confirmBtn ? '0px solid' : null)};
+
+  border: ${props => (props.cancelBtn ? '1px solid' : null)};
+  margin-left: ${props => (props.confirmBtn ? '10px' : null)};
 `
 
 export const VLink = styled(Link)`
@@ -44,7 +49,7 @@ export const CardVideo = styled.div`
   justify-content: ${props =>
     props.reactionVideoItem ? 'space-between' : null};
   align-items: ${props => (props.reactionVideoItem ? 'center' : null)};
-  width: ${props => (props.reactionVideoItem ? '80vw' : null)};
+  width: ${props => (props.reactionVideoItem ? '75vw' : null)};
   height: ${props => (props.reactionVideoItem ? '10vh' : null)};
 
   display: ${props => (props.reaction ? 'flex' : null)};
@@ -70,6 +75,9 @@ export const CardVideo = styled.div`
   align-items: ${props => (props.popup ? 'center' : null)};
   background-color: ${props => (props.popup ? 'white' : null)};
   border-radius: ${props => (props.popup ? '10px' : null)};
+
+  background-color: ${props =>
+    props.mainCardPopup ? 'rgba(0, 0, 0, 0.7)' : null};
 
   background-color: ${props => (props.darktheme ? 'black' : null)};
 `

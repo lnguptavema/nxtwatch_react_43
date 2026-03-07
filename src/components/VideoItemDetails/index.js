@@ -201,7 +201,7 @@ class VideoItemDetails extends Component {
                               </ParagraphContactHome>
                             </div>
                             <CardVideo btns>
-                              <Button
+                              <ButtonIcon
                                 type="button"
                                 className="trigger-button"
                                 onClick={() => close()}
@@ -209,15 +209,15 @@ class VideoItemDetails extends Component {
                                 darktheme={darktheme}
                               >
                                 Cancel
-                              </Button>
-                              <Button
+                              </ButtonIcon>
+                              <ButtonIcon
                                 darktheme={darktheme}
                                 confirmBtn
                                 type="button"
                                 onClick={clickedLogout}
                               >
                                 Confirm
-                              </Button>
+                              </ButtonIcon>
                             </CardVideo>
                           </CardVideo>
                         </CardVideo>
@@ -423,7 +423,7 @@ class VideoItemDetails extends Component {
                       {renderDate(videosArray.publishedAt)} ago
                     </ParagraphContactHome>
                   </CardVideo>
-                  <CardVideo>
+                  <CardVideo darktheme={darktheme}>
                     <CardVideo reaction darktheme={darktheme}>
                       <Button
                         darktheme={darktheme}

@@ -259,15 +259,23 @@ export const Button = styled.button`
   margin-left: ${props => (props.confirmBtn ? '10px' : null)};
 
   background-color: ${props => (props.darktheme ? 'black' : null)};
-  border: ${props => (props.cancelBtn ? '1px solid' : null)};
 `
 
 export const ButtonIcon = styled.button`
   outline: none;
   cursor: pointer;
-  color: ${props => (props.darktheme ? 'white' : 'black')};
   background-color: ${props => (props.darktheme ? 'black' : 'white')};
+  border: ${props => (props.cancelBtn ? '1px solid' : null)};
+  color: ${props => (props.darktheme ? 'white' : 'black')};
   border: ${props => (props.darktheme ? '0px solid' : '0px solid blue')};
+
+  color: ${props => (props.confirmBtn ? 'white' : null)};
+  background-color: ${props => (props.confirmBtn ? '#3b82f6' : null)};
+  margin-left: ${props => (props.confirmBtn ? '10px' : null)};
+
+  border: ${props => (props.cancelBtn ? '1px solid' : null)};
+  width: ${props => (props.cancelBtn ? '5vw' : null)};
+  height: ${props => (props.cancelBtn ? '5vh' : null)};
 `
 
 export const ImgLogoHome = styled.img`
