@@ -80,7 +80,7 @@ class Login extends Component {
                         {' '}
                         <label htmlFor="userNameInput">USERNAME</label>
                         <InputLoginDark
-                          placeholder="Username"
+                          placeholder="Username:  rahul"
                           type="input"
                           onChange={this.usernameEntering}
                           value={userName}
@@ -94,7 +94,7 @@ class Login extends Component {
                           <InputLoginDark
                             onChange={this.passwordEntering}
                             value={userPassword}
-                            placeholder="Password"
+                            placeholder="Password:   rahul@2021"
                             type="text"
                             id="passwordInput"
                           />
@@ -102,7 +102,7 @@ class Login extends Component {
                           <InputLoginDark
                             onChange={this.passwordEntering}
                             value={userPassword}
-                            placeholder="Password"
+                            placeholder="Password:   rahul@2021"
                             type="password"
                             id="passwordInput"
                           />
@@ -135,7 +135,7 @@ class Login extends Component {
                         {' '}
                         <label htmlFor="userNameInput">USERNAME</label>
                         <InputLogin
-                          placeholder="Username"
+                          placeholder="Username:   rahul"
                           type="input"
                           onChange={this.usernameEntering}
                           value={userName}
@@ -149,7 +149,7 @@ class Login extends Component {
                           <InputLogin
                             onChange={this.passwordEntering}
                             value={userPassword}
-                            placeholder="Password"
+                            placeholder="Password:   rahul@2021"
                             type="input"
                             id="passwordInput"
                           />
@@ -157,7 +157,7 @@ class Login extends Component {
                           <InputLogin
                             onChange={this.passwordEntering}
                             value={userPassword}
-                            placeholder="Password"
+                            placeholder="Password:   rahul@2021"
                             type="password"
                             id="passwordInput"
                           />
